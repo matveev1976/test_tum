@@ -933,7 +933,6 @@
 		    $.mobile.changePage('#serviceListInfo2');
 		    var html="";
 		    $('#serviceListInfo2_Service').html(response.result);
-		    alert(1);
 		    $('#serviceListInfo2_Service_b1').attr("code",code);
 		    $('#serviceListInfo2_Service a[docType]').bind("click", function(){serviceListInfo_sendDoc(this)});
 		    //
@@ -1639,7 +1638,7 @@
 
 	    #wrapper {
 		    position:absolute; z-index:1;
-		    top:45px; bottom:48px; left:10;
+		    top:45px; bottom:48px; left:0;
 		    width:100%;
 		    /* background:#aaa; */
 		    overflow:auto;
