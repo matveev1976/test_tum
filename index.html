@@ -104,7 +104,7 @@
         <script type="text/javascript">
 
 	    var ddd;
-	    var storeName='propsAppMFCN121';
+	    var storeName='propsAppMFC_New1';
 	    var propsAppEt = {'phone':'','email':'','password':'','urlrepo':'http://192.168.58.135','auto_selectMFC':'','director':false,'lastApp':'user','register':false};
 	    var propsApp;
 	    var userError;
@@ -145,7 +145,8 @@
 		$("#item_records").css("display","none");
 		$("#item_eq").css("display","none");
 		$("#item_director_search").css("display","none");
-		//$("#urlrepo_div").css("display","none");
+		$("#urlrepo_div").css("display","none");
+		$("#selectMFC_div").css("display","none");
 	      }else if (typeApp=='salehard'){
 		$("#urlrepo_div").css("display","none");
 		$('#main_check_app').css('display','none');
@@ -210,7 +211,7 @@
 		    'director':false,'lastApp':'user','register':false};
 		else if (typeApp=='tumen')
 		  propsApp={'phone':'','email':'','password':'',
-		    'urlrepo':'http://109.233.228.11','auto_selectMFC':'','auto_selectMFC_key':'',
+		    'urlrepo':'http://109.233.228.11','auto_selectMFC':'Тюмень','auto_selectMFC_key':'http://109.233.228.11',
 		    'director':false,'lastApp':'user','register':false};
 		else if (typeApp=='salehard')
 		  propsApp={'phone':'','email':'','password':'',
@@ -937,7 +938,7 @@
 		    $('#serviceListInfo2_Service a[docType]').bind("click", function(){serviceListInfo_sendDoc(this)});
 		    //
 		    if (myScroll==null){
-		      myScroll = new iScroll('wrapper');
+		      myScroll = new iScroll('wrapper',{hideScrollbar:false});
 		      //document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 		    }
 		  }
@@ -2322,10 +2323,12 @@
 		<label for="urlrepo">Адрес репозитария:</label>
 		<input type="url" name="urlrepo" id="urlrepo" value="" />
 		</div>
-		<label for="selectMFC">МФЦ (нажмите пробел для открытия списка):</label>
-		<div>&nbsp</div>
-	        <div id="selectMFCdiv">
-	          <ul id="selectMFC" name="selectMFC" data-inline="true" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Выберите МФЦ..." data-filter-theme="d"></ul>
+		<div id="selectMFC_div">
+		  <label for="selectMFC">МФЦ (нажмите пробел для открытия списка):</label>
+		  <div>&nbsp</div>
+		  <div id="selectMFCdiv">
+		    <ul id="selectMFC" name="selectMFC" data-inline="true" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Выберите МФЦ..." data-filter-theme="d"></ul>
+		  </div>
 	        </div>
 		<label for="phone">Номер телефона (8XXXXXXXXXX):</label>
 		<input onblur="validatePhone($(this).val())" type="tel" name="phone" id="phone" value="" maxlength="11"/>
