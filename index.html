@@ -145,7 +145,7 @@
 		$("#item_records").css("display","none");
 		$("#item_eq").css("display","none");
 		$("#item_director_search").css("display","none");
-		$("#urlrepo_div").css("display","none");
+		//$("#urlrepo_div").css("display","none");
 	      }else if (typeApp=='salehard'){
 		$("#urlrepo_div").css("display","none");
 		$('#main_check_app').css('display','none');
@@ -172,9 +172,14 @@
 	      return res;
 	    }
 
+	    function saveSattingsButton(){
+	      if (saveSattings())
+		showMessage("Данные сохранены");
+	    }
+	    
 	    function saveSattings(){
 	      if (!validatePhone($('#phone').val()))
-		return;
+		return false;
 	      //
 	      $.each( propsAppEt, function ( i, val ) {
 		if (i.substr(0,5)=='auto_'){
@@ -191,8 +196,7 @@
 	      //alert(JSON.stringify(propsApp));
 	      //
 	      localStorage.setItem(storeName, JSON.stringify(propsApp));
-	      //
-	      showMessage("Данные сохранены");
+	      return true;
 	    }
 	    
 	    function loadSettings(){
@@ -929,6 +933,7 @@
 		    $.mobile.changePage('#serviceListInfo2');
 		    var html="";
 		    $('#serviceListInfo2_Service').html(response.result);
+		    alert(1);
 		    $('#serviceListInfo2_Service_b1').attr("code",code);
 		    $('#serviceListInfo2_Service a[docType]').bind("click", function(){serviceListInfo_sendDoc(this)});
 		    //
@@ -2324,13 +2329,13 @@
 	          <ul id="selectMFC" name="selectMFC" data-inline="true" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Выберите МФЦ..." data-filter-theme="d"></ul>
 	        </div>
 		<label for="phone">Номер телефона (8XXXXXXXXXX):</label>
-		<input onblur="validatePhone($(this).val())" type="tel" name="phone" id="phone" value="" />
+		<input onblur="validatePhone($(this).val())" type="tel" name="phone" id="phone" value="" maxlength="11"/>
 		<label for="email">Электронная почта:</label>
 		<input type="email" name="email" id="email" value="" data-clear-btn="true" />
 		<label for="password">Код авторизации:</label>
 		<input type="password" name="password" id="password" value="" autocomplete="off">
 	      <p> 
-		<a onclick="saveSattings()" data-role="button" data-inline="true">Сохранить</a>
+		<a onclick="saveSattingsButton()" data-role="button" data-inline="true">Сохранить</a>
 		<a onclick="register()" data-role="button" data-inline="true">Зарегистрироваться</a>
 		<a onclick="checkRegister()" data-role="button" data-inline="true">Проверить реквизиты доступа</a>
 	      </p>
