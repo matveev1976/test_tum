@@ -82,7 +82,7 @@
 		    
 		}
 	    });*/
-	  });        
+	  });
 	</script>  
 	<script src="js/jquery.mobile-1.3.2.min.js"></script>
 	<script src="js/date.format.js"></script>
@@ -104,7 +104,7 @@
         <script type="text/javascript">
 
 	    var ddd;
-	    var storeName='propsAppMFC_New1';
+	    var storeName='propsAppMFC_New11';
 	    var propsAppEt = {'phone':'','email':'','password':'','urlrepo':'http://192.168.58.135','auto_selectMFC':'','director':false,'lastApp':'user','register':false};
 	    var propsApp;
 	    var userError;
@@ -140,7 +140,7 @@
 		  checkMode(0);
 	      }
 	      //Скрываем пункты меню, в зависимости от типа приложения
-	      if (typeApp=='tumen'){
+/*	      if (typeApp=='tumen'){
 		$("#item_callBack").css("display","none");
 		$("#item_records").css("display","none");
 		$("#item_eq").css("display","none");
@@ -150,7 +150,7 @@
 	      }else if (typeApp=='salehard'){
 		$("#urlrepo_div").css("display","none");
 		$('#main_check_app').css('display','none');
-	      }
+	      }*/
 	      //
 	      disableMenuItem();
 	      //
@@ -180,6 +180,8 @@
 	    
 	    function saveSattings(){
 	      if (!validatePhone($('#phone').val()))
+		return false;
+	      if (!validateEmail($('#email').val()))
 		return false;
 	      //
 	      $.each( propsAppEt, function ( i, val ) {
@@ -277,6 +279,17 @@
 	      var res=urlregex.test(textval);
 	      if (res==false)
 		showMessage("Формат номера телефона: 8XXXXXXXXXX!");
+	      return res;
+	    }
+
+	    function validateEmail(textval) {
+	      if (emptyValue(textval))
+		return true;
+	      //var urlregex = new RegExp("^\S+@\S+\.\S+$");
+	      var urlregex = new RegExp("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$");
+	      var res=urlregex.test(textval);
+	      if (res==false)
+		showMessage("Формат электронной почты не верен!");
 	      return res;
 	    }
 	    
@@ -727,6 +740,17 @@
 	    $( document ).on( "pagebeforeshow", "#main_page", function() {
 	      if (deviceready)
 		disableMenuItem();
+	      if (typeApp=='tumen'){
+		$("#item_callBack").css("display","none");
+		$("#item_records").css("display","none");
+		$("#item_eq").css("display","none");
+		$("#item_director_search").css("display","none");
+		$("#urlrepo_div").css("display","none");
+		$("#selectMFC_div").css("display","none");
+	      }else if (typeApp=='salehard'){
+		$("#urlrepo_div").css("display","none");
+		$('#main_check_app').css('display','none');
+	      }
 	    });
 	    
 	    $( document ).on( "pageinit", "#main_page", function() {
@@ -1466,7 +1490,7 @@
 	    function page_go(page){
 	      pageMode=page;
 	      if (pageMode=='status')
-		$('#director_select_owner_head').html("Состояние МФЦ");
+		$('#director_select_owner_head').html("Состояние");
 	      else if (pageMode=='analytic')
 		$('#director_select_owner_head').html("Аналитика");
 	      else if (pageMode=='eq')
@@ -1845,7 +1869,7 @@
 	<div data-role="page" id="director_select_owner" data-add-back-btn="true" data-back-btn-text="Назад">
 	    <div data-role="header" data-theme="b" data-position="fixed">
 		    <a href="#main_page" data-role="button" data-icon="bars" data-inline="true" class="ui-btn-right">Меню</a>
-		    <h1 id="director_select_owner_head">Состояние МФЦ</h1>
+		    <h1 id="director_select_owner_head">Состояние</h1>
 	    </div>
 	    <div data-role="content" data-theme="b">
 		<h3>Выберите филиал<h3>
@@ -1857,7 +1881,7 @@
 	<div data-role="page" id="director_page_status" data-add-back-btn="true" data-back-btn-text="Назад">
 	    <div data-role="header" data-theme="b" data-position="fixed">
 		    <a href="#main_page" data-role="button" data-icon="bars" data-inline="true" class="ui-btn-right">Меню</a>
-		    <h1>Состояние МФЦ</h1>
+		    <h1>Состояние</h1>
 	    </div>
 	    <div data-role="content" data-theme="b">
 		<h3 id="director_page_status_ownerName"></h3>
@@ -2302,11 +2326,11 @@
 	    
 	</div>	
 	
-	<div data-role="page" id="settings" data-theme="b" data-add-back-btn="true" data-back-btn-text="Назад">
+	<div data-role="page" id="settings" data-theme="b" data-add-back-btn="false" data-back-btn-text="Назад">
 	    <div data-role="popup" id="confirmDialogSettings" data-add-back-btn="false" data-overlay-theme="a" data-theme="c" data-dismissible="false" style="max-width:400px;" class="ui-corner-all">
-		<div data-role="header" data-theme="a" class="ui-corner-top" data-add-back-btn="false" data-position="fixed">
+<!--		<div data-role="header" data-theme="a" class="ui-corner-top" data-add-back-btn="false" data-position="fixed">
 		    <h3>Внимание</h3>
-		</div>
+		</div> -->
 		<div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
 		    <h3 class="ui-title">В настройках есть несохранення изменения. Сохранить?</h3>
 		    <a onclick="settings_dialog(true);" data-role="button" data-inline="true" data-rel="back" data-theme="c">Да</a>
@@ -2315,6 +2339,7 @@
 	    </div>
 	    
 	    <div data-role="header" data-theme="b" data-position="fixed">
+		<a onclick="settings_back();" data-role="button" data-icon="arrow-l" data-inline="true" class="ui-btn-left">Назад</a>	    
 		<a onclick="settings_back();" data-role="button" data-icon="bars" data-inline="true" class="ui-btn-right">Меню</a>
 		<h1>Настройки</h1>
 	    </div>
@@ -2333,7 +2358,7 @@
 		<label for="phone">Номер телефона (8XXXXXXXXXX):</label>
 		<input onblur="validatePhone($(this).val())" type="tel" name="phone" id="phone" value="" maxlength="11"/>
 		<label for="email">Электронная почта:</label>
-		<input type="email" name="email" id="email" value="" data-clear-btn="true" />
+		<input onblur="validateEmail($(this).val())" type="email" name="email" id="email" value="" data-clear-btn="true" />
 		<label for="password">Код авторизации:</label>
 		<input type="password" name="password" id="password" value="" autocomplete="off">
 	      <p> 
@@ -2368,7 +2393,7 @@
 		  else
 		    loadSettings();
 		  $('#confirmDialogSettings' ).popup('close');
-			$.mobile.changePage('#main_page');		  
+		  $.mobile.changePage('#main_page');  
 /*		  $('#menu_Panel_Settings').panel(
 		      "open",
 		      {
