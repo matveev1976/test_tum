@@ -7,10 +7,10 @@
 <!--        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" /> -->
 <!--        <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
 	<!-- jquery.mobile -->
-<!--	<link rel="stylesheet" href="css/tumen.css" /> -->
-<!--	<link rel="stylesheet" href="css/jquery.mobile.icons.min.css"> -->
+	<link rel="stylesheet" href="css/tumen.css" />
+	<link rel="stylesheet" href="css/jquery.mobile.icons-1.4.2.css">
 <!--	<link rel="stylesheet" href="css/theme-classic.css"> -->
-	<link rel="stylesheet" href="css/jquery.mobile-1.4.2.css" />
+<!--	<link rel="stylesheet" href="css/jquery.mobile-1.4.2.css" /> -->
 	<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.2.css" />
 	<!-- календарь -->
 <!--	<link rel="stylesheet" type="text/css" href="css/datebox/jqm-datebox.min.css" /> -->
@@ -1965,7 +1965,7 @@
     </head>
     <body>
 	<div data-role="page" id="main_page" data-add-back-btn="false" data-back-btn-text="Назад">
-	    <div data-role="popup" id="menu_App_Context" data-theme="d">
+	    <div data-role="popup" id="menu_App_Context" data-theme="b">
 		<ul data-role="listview" data-inset="true" data-divider-theme="d">
 		  <li><a onclick="checkMode(0);">Заявитель</a></li>
 		  <li><a onclick="checkMode(1);">Руководитель</a></li>
@@ -1973,7 +1973,7 @@
 	    </div>
 	    
 	    <div data-role="popup" id="dialogSearchPack" data-add-back-btn="false" data-overlay-theme="a" data-theme="c" data-dismissible="false" style="max-width:400px;" class="ui-corner-all">
-		<div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+		<div data-role="content" data-theme="b" class="ui-corner-bottom ui-content">
 		    <label for="packNumSearch">Номер дела:</label>
 		    <input type="text" name="packNumSearch" id="packNumSearch" value="" />
 		    <a onclick="director_search_pack($('#packNumSearch').val())" data-role="button" data-inline="true" data-rel="back" data-theme="c">Найти</a>
@@ -2037,10 +2037,10 @@
 	</div>
 	
 	<div data-role="page" id="dialogError">
-	    <div data-role="header" data-theme="a" class="ui-corner-top" data-add-back-btn="false">
+	    <div data-role="header" data-theme="b" class="ui-corner-top" data-add-back-btn="false">
 		<h3>Внимание</h3>
 	    </div>
-	    <div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+	    <div data-role="content" data-theme="b" class="ui-corner-bottom ui-content">
 		<h3 class="ui-title">При отправке данных произошла ошибка</h3>
 		<p id="dialogErrorMsg">Тест ошибки</p>
 		<!--
@@ -2272,7 +2272,7 @@
 	    <div data-role="content" data-theme="b">	
 		<ul data-role="listview" data-inset="true" id="listCallBack">
 		</ul>
-		<div data-role="popup" id="dialog_callBack_cancel" data-theme="d" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;">
+		<div data-role="popup" id="dialog_callBack_cancel" data-theme="b" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;">
 		    <h3>Отменить заявку?</h3>
 		    <p>Заявка на обратный звонок будет отменена. Специалист МФЦ вам не перезвонит</p>
 		    <a onclick="callBack_cancel()" data-role="button" data-rel="back" data-theme="b" data-icon="check" data-inline="true">Да</a>
@@ -2306,7 +2306,7 @@
 	      <h3>Текущие записи<h3>
 	      <p id="records_list"></p>
 	      
-	      <div data-role="popup" id="dialog_records_cancel" data-theme="d" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;">
+	      <div data-role="popup" id="dialog_records_cancel" data-theme="b" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;">
 		  <h3>Отмена записи</h3>
 		  <p>Вы действительно хотите отказаться от записи на прием?</p>
 		  <a onclick="records_cancel()" data-role="button" data-rel="back" data-theme="b" data-icon="check" data-inline="true">Да</a>
@@ -2376,7 +2376,7 @@
 	
 	<div data-role="page" id="serviceInfo" data-add-back-btn="true" data-back-btn-text="Назад">
 	    <div data-role="popup" id="dialogAddPackToList" data-add-back-btn="false" data-overlay-theme="a" data-theme="c" data-dismissible="false" style="max-width:400px;" class="ui-corner-all">
-		<div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+		<div data-role="content" data-theme="b" class="ui-corner-bottom ui-content">
 		    <h3>Добавить услугу</h3>
 		    <label for="packNum">Номер дела:</label>
 		    <input type="text" name="packNum" id="packNum" value="" />
@@ -2423,7 +2423,7 @@
 	</div>	
 	
 	<div data-role="page" id="menu1_serviceInfo" data-add-back-btn="true" data-back-btn-text="Назад">
-		<div data-role="popup" id="menu_Panel_Context" data-theme="d">
+		<div data-role="popup" id="menu_Panel_Context" data-theme="b">
 		    <ul data-role="listview" data-inset="true" data-divider-theme="d">
 		      <li><a onclick="serviceInfo_back()">Назад</a></li>
 		      <li data-role="list-divider"></li>
@@ -2614,10 +2614,10 @@
 	
 	<div data-role="page" id="settings" data-theme="b" data-add-back-btn="false" data-back-btn-text="Назад">
 	    <div data-role="popup" id="confirmDialogSettings" data-add-back-btn="false" data-overlay-theme="a" data-theme="c" data-dismissible="false" style="max-width:400px;" class="ui-corner-all">
-<!--		<div data-role="header" data-theme="a" class="ui-corner-top" data-add-back-btn="false" data-position="fixed">
+<!--		<div data-role="header" data-theme="b" class="ui-corner-top" data-add-back-btn="false" data-position="fixed">
 		    <h3>Внимание</h3>
 		</div> -->
-		<div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+		<div data-role="content" data-theme="b" class="ui-corner-bottom ui-content">
 		    <h3 class="ui-title">В настройках есть несохранення изменения. Сохранить?</h3>
 		    <a onclick="settings_dialog(true);" data-role="button" data-inline="true" data-rel="back" data-theme="c">Да</a>
 		    <a onclick="settings_dialog(false);" data-role="button" data-inline="true" data-rel="back" data-transition="flow" data-theme="b">Нет</a>
