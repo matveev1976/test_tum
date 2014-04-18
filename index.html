@@ -728,11 +728,10 @@
     
 	    $( document ).on( "pageinit", function( event ) {
 	    alert(1);
-		if (navigator.userAgent.match(/(iPad|iPhone);.*CPU.*OS 7_\d/i)) {
-		  alert(2);
+		//if (navigator.userAgent.match(/(iPad|iPhone);.*CPU.*OS 7_\d/i)) {
 		    $("body").addClass("ios7");
 		    $('body').append('<div id="ios7statusbar"/>');
-		}
+		//}
 	    });
 	    
 	    $( document ).on( "pageinit", "#settings", function() {
