@@ -65,6 +65,19 @@
 	      overflow: hidden;
 	    }
 
+	    #ios7statusbar
+	    {
+		width:100%;
+		height:20px;
+		background-color:white;
+		position:fixed;
+		z-index:100;
+	    }
+	    
+	    .ios7 .ui-page
+	    {
+		margin-top: 20px;
+	    }
 	</style>
 	
         <script type="text/javascript">
@@ -113,7 +126,7 @@
         <script type="text/javascript">
 
 	    var ddd;
-	    var storeName='propsAppMFC_New2111';
+	    var storeName='propsAppMFCT1';
 	    var propsAppEt = {'phone':'','email':'','password':'','urlrepo':'http://192.168.58.135','auto_selectMFC':'','director':false,'lastApp':'user','register':false};
 	    var propsApp;
 	    var userError;
@@ -135,16 +148,6 @@
 	    };
 
 	    function init(){
-	      alert(navigator.userAgent);
-	      if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)) {
-		alert(1);
-		alert(window.device.version);
-		if (parseFloat(window.device.version) === 7.0) {
-		  alert(2);
-		      document.body.style.marginTop = "20px";
-		}
-	      }
-	      //
 	      $.mobile.defaultPageTransition   = 'none';
 	      $.mobile.defaultDialogTransition = 'none';
 	      $.mobile.buttonMarkup.hoverDelay = 0;
@@ -723,6 +726,14 @@
 	      return true;
 	    }
     
+	    $( document ).on( "pageinit", function( event ) {
+		if (navigator.userAgent.match(/(iPad|iPhone);.*CPU.*OS 7_\d/i)) {
+		  alert(1);
+		    $("body").addClass("ios7");
+		    $('body').append('<div id="ios7statusbar"/>');
+		}
+	    });
+	    
 	    $( document ).on( "pageinit", "#settings", function() {
 	      $('#selectMFCdiv a.ui-input-clear').click(function () {
 		var el=$(this).closest('form').find('input');
