@@ -727,8 +727,9 @@
 	    }
     
 	    $( document ).on( "pageinit", function( event ) {
+	    alert(1);
 		if (navigator.userAgent.match(/(iPad|iPhone);.*CPU.*OS 7_\d/i)) {
-		  alert(1);
+		  alert(2);
 		    $("body").addClass("ios7");
 		    $('body').append('<div id="ios7statusbar"/>');
 		}
