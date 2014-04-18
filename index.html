@@ -65,19 +65,6 @@
 	      overflow: hidden;
 	    }
 
-	    #ios7statusbar
-	    {
-		width:100%;
-		height:20px;
-		background-color:white;
-		position:fixed;
-		z-index:100;
-	    }
-	    
-	    .ios7 .ui-page
-	    {
-		margin-top: 20px;
-	    }
 	</style>
 	
         <script type="text/javascript">
@@ -126,7 +113,7 @@
         <script type="text/javascript">
 
 	    var ddd;
-	    var storeName='propsAppMFCT1';
+	    var storeName='propsAppMFC_New2111';
 	    var propsAppEt = {'phone':'','email':'','password':'','urlrepo':'http://192.168.58.135','auto_selectMFC':'','director':false,'lastApp':'user','register':false};
 	    var propsApp;
 	    var userError;
@@ -726,14 +713,6 @@
 	      return true;
 	    }
     
-	    $( document ).on( "pageinit", function( event ) {
-	    alert(1);
-		//if (navigator.userAgent.match(/(iPad|iPhone);.*CPU.*OS 7_\d/i)) {
-		    $("body").addClass("ios7");
-		    $('body').append('<div id="ios7statusbar"/>');
-		//}
-	    });
-	    
 	    $( document ).on( "pageinit", "#settings", function() {
 	      $('#selectMFCdiv a.ui-input-clear').click(function () {
 		var el=$(this).closest('form').find('input');
