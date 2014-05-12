@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="org.lanit.cp.mobile" version="1.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Мобильный МФЦ</name>
+    <name>Мобильный МФЦ. Тюмень.</name>
     <description>
-        Мобильный клиент МФЦ.
+        Мобильный клиент МФЦ. Тюмень.
     </description>
     <author email="smatveev@lanit.ru" href="http://www.lanit.ru">
         Ланит-Самара
