@@ -872,6 +872,7 @@
 
 	    function checkRegister(){
 	      saveSattings();
+	      alert(getUrlMfc()+"/rest/mobileServices/checkRegister");
 	      //
 	      $.ajax({
 	      url : getUrlMfc()+"/rest/mobileServices/checkRegister",
@@ -2639,7 +2640,7 @@
 		    <ul id="selectMFC" name="selectMFC" data-inline="true" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Выберите МФЦ..." data-filter-theme="d"></ul>
 		  </div>
 	        </div>
-		<label for="phone">!Номер телефона (8XXXXXXXXXX):</label>
+		<label for="phone">Номер телефона (8XXXXXXXXXX):</label>
 		<input onblur="validatePhone($(this).val())" type="tel" name="phone" id="phone" value="" maxlength="11"/>
 		<label for="email">Электронная почта:</label>
 		<input onblur="validateEmail($(this).val())" type="email" name="email" id="email" value="" data-clear-btn="true" />
